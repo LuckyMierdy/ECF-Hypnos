@@ -1,0 +1,243 @@
+@import "~bootstrap/scss/bootstrap";
+
+body {
+  background-color: #E7E5DF;
+}
+
+header>div>div {
+  width: 142px;
+}
+
+.hotel-name {
+  font-size: x-large;
+  text-align: center;
+}
+
+li>a {
+  color: #1C1F2A;
+  text-decoration: none;
+}
+
+li {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.img-accueil {
+  width: 350px;
+  height: auto;
+  margin: 1rem;
+}
+
+.img-etablissement {
+  height: 300px;
+}
+
+.img-box-etablissement {
+  display: flex;
+  justify-content: end;
+  margin: 2rem;
+  width: 50%;
+}
+
+.etablissement-text {
+  width: auto;
+  padding-right: 3rem;
+  width: 50%;
+}
+
+
+.button {
+  background-color: #44BBA4;
+  border-radius: 15px;
+  border: 1px solid #44BBA4;
+  display: inline-block;
+  cursor: pointer;
+  color: #E7E5DF;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 16px 31px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #E7E5DF;
+}
+
+.button:hover {
+  background-color: #E7E5DF;
+  color: #44BBA4;
+}
+
+.button:active {
+  position: relative;
+  top: 1px;
+}
+
+footer>div {
+  background-color: #393E41;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 350px;
+  padding: 1rem;
+  margin: 2rem;
+  border: solid 1.5px;
+  border-radius: 20px;
+}
+
+.img-etablissement-chambre {
+  height: 300px;
+}
+
+.img-galerie {
+  height: 50px;
+}
+
+.img-chambre {
+  height: 250px;
+  width: 300px;
+  margin: 0.5rem 2rem 2rem 2rem;
+}
+
+input,
+select {
+  width: 265px;
+}
+
+label {
+  width: 190px;
+}
+
+textarea {
+  width: 500px;
+  height: 200px;
+}
+
+@media (min-width: 768px) {
+  header>div>div {
+    background-color: #393E41;
+    width: 300px;
+  }
+
+  nav {
+    background-color: #393E41;
+    width: 300px;
+  }
+
+  li>a {
+    color: #E7BB41;
+  }
+
+}
+
+@media (max-width: 1500px) {
+
+  .img-etablissement,
+  .img-etablissement-chambre {
+    height: 200px;
+  }
+
+  .img-chambre {
+    height: 150px;
+    width: 200px;
+  }
+
+  .img-galerie {
+    height: 30px;
+  }
+
+  .cards {
+    width: 250px;
+  }
+
+}
+
+@media (max-width: 1199px) {
+  .img-etablissement {
+    height: 250px;
+  }
+
+  .img-box-etablissement {
+    justify-content: center;
+  }
+
+  .etablissement-text {
+    width: 75%;
+    padding-right: 0;
+  }
+
+  .img-etablissement-chambre {
+    height: 200px;
+  }
+
+  .img-chambre {
+    height: 250px;
+    width: 300px;
+  }
+
+  .img-galerie {
+    height: 50px;
+  }
+
+  .cards {
+    width: 350px;
+  }
+
+  textarea {
+    width: 265px;
+    height: 100px;
+  }
+
+}
+
+@media (max-width: 767px) {
+  #navbar-relative {
+    position: absolute;
+    top: 10px;
+    left: 1rem;
+  }
+
+  nav>div>div>div>ul {
+    background-color: #E7E5DF;
+  }
+
+  footer>div>div>ul>li>a {
+    color: #E7E5DF;
+  }
+
+  .img-accueil {
+    width: 400px;
+  }
+
+  .img-etablissement {
+    height: 200px;
+  }
+}
+
+@media (max-width: 575px) {
+  .img-accueil {
+    height: 250px;
+  }
+
+  .img-etablissement {
+    height: 150px;
+  }
+
+  .img-etablissement-chambre {
+    height: 150px;
+  }
+
+  .img-chambre {
+    height: 200px;
+    width: 250px;
+  }
+
+  .img-galerie {
+    height: 40px;
+  }
+
+  .cards {
+    width: 300px;
+  }
+}
