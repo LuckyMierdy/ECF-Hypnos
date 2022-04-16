@@ -1,0 +1,11 @@
+<form class='d-flex flex-column align-items-center' style='width: 100%;' action="{{ path('login') }}" method="post">
+	<label class='pt-5' for="username">Email:</label>
+	<input type="text" id="username" name="_username" value="{{ last_username|default('') }}"/>
+
+	<label class='pt-5' for="password">Password:</label>
+	<input type="password" id="password" name="_password"/>
+	<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+	<input type="hidden" name="_target_path" value="{{ path('app_accueil') }}"/>
+	<button class='button my-5 mb-5' type="submit">login</button>
+	<a href="{{ path('app_register') }}">S'enrigistrer</a>
+</form>

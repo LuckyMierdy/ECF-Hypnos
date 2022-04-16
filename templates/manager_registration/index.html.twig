@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register
+{% endblock %}
+
+{% block body %}
+	<div class="d-flex flex-column align-items-center" style='width: 100%;'>
+		<h1>Enregistrer un nouveau Gérant</h1>
+		{{ form_start(managerRegistration) }}
+		<div class="text-center mt-2 mb-2">
+			{{ form_row(managerRegistration.email) }}
+		</div>
+		<div class="text-center mt-2 mb-2">
+			{{ form_row(managerRegistration.firstname) }}
+		</div>
+		<div class="text-center mt-2 mb-2">
+			{{ form_row(managerRegistration.lastname) }}
+		</div>
+		<div class="text-center mt-2 mb-2">
+			{{ form_row(managerRegistration.plainPassword, {
+        label: 'Password'
+      }) }}
+		</div>
+		<div class="text-center">
+			{{ form_row(managerRegistration.agreeTerms) }}
+		</div>
+		<div class="d-flex justify-content-center">
+			<button type="submit" class="button mt-5">Enregistrer le gérant</button>
+		</div>
+		{{ form_end(managerRegistration) }}
+
+	</div>
+{% endblock %}

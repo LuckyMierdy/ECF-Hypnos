@@ -18,6 +18,7 @@ class HotelType extends AbstractType
       ->add('city')
       ->add('adress')
       ->add('description')
+      ->add('manager_name')
       ->add('imageFile', FileType::class, [
         'label' => 'Hotel image',
         'mapped' => false,

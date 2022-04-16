@@ -1,41 +1,48 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hotel index{% endblock %}
+{% block title %}
+	Hotel index
+{% endblock %}
 
 {% block body %}
-    <h1>Hotel index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>City</th>
-                <th>Adress</th>
-                <th>Description</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for hotel in hotels %}
-            <tr>
-                <td>{{ hotel.id }}</td>
-                <td>{{ hotel.name }}</td>
-                <td>{{ hotel.city }}</td>
-                <td>{{ hotel.adress }}</td>
-                <td>{{ hotel.description }}</td>
-                <td>
-                    <a href="{{ path('app_hotel_show', {'id': hotel.id}) }}">show</a>
-                    <a href="{{ path('app_hotel_edit', {'id': hotel.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_hotel_new') }}">Create new</a>
+	<div class="d-flex flex-row flex-sm-column align-items-center p-5" style="width:100%;">
+		<h1>Hotel index</h1>
+		<table class="table table-striped">
+			<thead>
+				<tr class="container">
+					<th class="text-center col-1">Id</th>
+					<th class="text-center col-1">Name</th>
+					<th class="text-center col-1">City</th>
+					<th class="text-center col-1">Adress</th>
+					<th class="text-center col-5">Description</th>
+					<td class="text-center col-1">Nom du gérant</td>
+					<th class="text-center col-2">actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for hotel in hotels %}
+					<tr class="container">
+						<td class="text-center col-1">{{ hotel.id }}</td>
+						<td class="text-center col-1">{{ hotel.name }}</td>
+						<td class="text-center col-1">{{ hotel.city }}</td>
+						<td class="text-center col-1">{{ hotel.adress }}</td>
+						<td class="text-center col-5">{{ hotel.description }}</td>
+						<td class="text-center col-1">{{ hotel.managername }}</td>
+						<td class="text-center col-2">
+							<div class="d-flex flex-column align-items-center">
+								<a href="{{ path('app_hotel_show', {'id': hotel.id}) }}" class="pt-3">Montrer l'établissement</a>
+								<a href="{{ path('app_hotel_edit', {'id': hotel.id}) }}" class="pt-3">Éditer l'établissement</a>
+							</div>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="6">Aucun établissement trouvé</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		<a href="{{ path('app_hotel_new') }}" class="button mt-3">Créer nouvelle établissement</a>
+		<a href="{{ path('app_manager_registration') }}" class='m-5'>Créer un nouveau manager</a>
+	</div>
 {% endblock %}
