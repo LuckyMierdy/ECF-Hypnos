@@ -60,7 +60,7 @@
 								</li>
 								{% if is_granted('ROLE_MANAGER') %}
 									<li>
-										<a href="#">Gestion des chambres</a>
+										<a href="{{ path('app_room_index') }}">Gestion des chambres</a>
 									</li>
 								{% endif %}
 								{% if is_granted('ROLE_ADMIN') %}

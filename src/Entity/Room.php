@@ -8,74 +8,88 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: RoomRepository::class)]
 class Room
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column(type: 'integer')]
-    private $id;
+  #[ORM\Id]
+  #[ORM\GeneratedValue]
+  #[ORM\Column(type: 'integer')]
+  private $id;
 
-    #[ORM\Column(type: 'string', length: 255)]
-    private $name;
+  #[ORM\Column(type: 'string', length: 255)]
+  private $name;
 
-    #[ORM\Column(type: 'text')]
-    private $description;
+  #[ORM\Column(type: 'text')]
+  private $description;
 
-    #[ORM\Column(type: 'string', length: 255)]
-    private $price;
+  #[ORM\Column(type: 'string', length: 255)]
+  private $price;
 
-    #[ORM\ManyToOne(targetEntity: hotel::class, inversedBy: 'rooms')]
-    #[ORM\JoinColumn(nullable: false)]
-    private $hotelId;
+  #[ORM\Column(type: 'string', length: 255)]
+  private $manager_name;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
+  #[ORM\Column(type: 'string', length: 255)]
+  private $room_image;
 
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
+  public function getId(): ?int
+  {
+    return $this->id;
+  }
 
-    public function setName(string $name): self
-    {
-        $this->name = $name;
+  public function getName(): ?string
+  {
+    return $this->name;
+  }
 
-        return $this;
-    }
+  public function setName(string $name): self
+  {
+    $this->name = $name;
 
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
+    return $this;
+  }
 
-    public function setDescription(string $description): self
-    {
-        $this->description = $description;
+  public function getDescription(): ?string
+  {
+    return $this->description;
+  }
 
-        return $this;
-    }
+  public function setDescription(string $description): self
+  {
+    $this->description = $description;
 
-    public function getPrice(): ?string
-    {
-        return $this->price;
-    }
+    return $this;
+  }
 
-    public function setPrice(string $price): self
-    {
-        $this->price = $price;
+  public function getPrice(): ?string
+  {
+    return $this->price;
+  }
 
-        return $this;
-    }
+  public function setPrice(string $price): self
+  {
+    $this->price = $price;
 
-    public function getHotelId(): ?hotel
-    {
-        return $this->hotelId;
-    }
+    return $this;
+  }
 
-    public function setHotelId(?hotel $hotelId): self
-    {
-        $this->hotelId = $hotelId;
+  public function getManagerName(): ?string
+  {
+      return $this->manager_name;
+  }
 
-        return $this;
-    }
+  public function setManagerName(string $manager_name): self
+  {
+      $this->manager_name = $manager_name;
+
+      return $this;
+  }
+
+  public function getRoomImage(): ?string
+  {
+      return $this->room_image;
+  }
+
+  public function setRoomImage(string $room_image): self
+  {
+      $this->room_image = $room_image;
+
+      return $this;
+  }
 }

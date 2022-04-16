@@ -102,28 +102,6 @@ class Hotel
     return $this->rooms;
   }
 
-  public function addRoom(Room $room): self
-  {
-    if (!$this->rooms->contains($room)) {
-      $this->rooms[] = $room;
-      $room->setHotelId($this);
-    }
-
-    return $this;
-  }
-
-  public function removeRoom(Room $room): self
-  {
-    if ($this->rooms->removeElement($room)) {
-      // set the owning side to null (unless already changed)
-      if ($room->getHotelId() === $this) {
-        $room->setHotelId(null);
-      }
-    }
-
-    return $this;
-  }
-
   public function getHotelImage(): ?string
   {
     return $this->hotelImage;

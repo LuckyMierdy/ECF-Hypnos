@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20220413155152 extends AbstractMigration
+final class Version20220416135254 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,16 +20,15 @@ final class Version20220413155152 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE room ADD hotel_id_id INT NOT NULL');
+        $this->addSql('CREATE TABLE room (id INT AUTO_INCREMENT NOT NULL, hotel_id_id INT NOT NULL, name VARCHAR(255) NOT NULL, description LONGTEXT NOT NULL, price VARCHAR(255) NOT NULL, room_image VARCHAR(255) NOT NULL, INDEX IDX_729F519B9C905093 (hotel_id_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('ALTER TABLE room ADD CONSTRAINT FK_729F519B9C905093 FOREIGN KEY (hotel_id_id) REFERENCES hotel (id)');
-        $this->addSql('CREATE INDEX IDX_729F519B9C905093 ON room (hotel_id_id)');
+        $this->addSql('ALTER TABLE hotel CHANGE manager_name manager_name VARCHAR(255) NOT NULL');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE room DROP FOREIGN KEY FK_729F519B9C905093');
-        $this->addSql('DROP INDEX IDX_729F519B9C905093 ON room');
-        $this->addSql('ALTER TABLE room DROP hotel_id_id');
+        $this->addSql('DROP TABLE room');
+        $this->addSql('ALTER TABLE hotel CHANGE manager_name manager_name VARCHAR(255) DEFAULT NULL');
     }
 }

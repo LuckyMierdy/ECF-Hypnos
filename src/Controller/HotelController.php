@@ -108,7 +108,7 @@ class HotelController extends AbstractController
   public function delete(Request $request, Hotel $hotel, HotelRepository $hotelRepository): Response
   {
     if ($this->isCsrfTokenValid('delete' . $hotel->getId(), $request->request->get('_token'))) {
-      $filename = $hotel->gethotelImage();
+      $filename = $hotel->getHotelImage();
       $hotelRepository->remove($hotel);
 
       $fs = new Filesystem();

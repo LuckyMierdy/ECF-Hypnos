@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Room
+{% endblock %}
+
+{% block body %}
+	<div class="d-flex flex-column align-items-center p-5" style="width:100%;">
+		<h1>{{ room.name }}</h1>
+
+		<table class="table">
+			<tbody>
+				<tr>
+					<th class="text-end" style="width: 25%">Id de la chambre :</th>
+					<td>{{ room.id }}</td>
+				</tr>
+				<tr>
+					<th class="text-end" style="width: 25%">Nom de la chambre :</th>
+					<td>{{ room.name }}</td>
+				</tr>
+				<tr>
+					<th class="text-end" style="width: 25%">Description :</th>
+					<td>{{ room.description }}</td>
+				</tr>
+				<tr>
+					<th class="text-end" style="width: 25%">Prix :</th>
+					<td>{{ room.price }}</td>
+				</tr>
+				<tr>
+					<th class="text-end" style="width: 25%">Nom du gérant(e) :</th>
+					<td></td>
+				</tr>
+				<tr>
+					<th class="text-end" style="width: 25%">Image :</th>
+					<td>
+						<img src=" {{asset('uploads/' ~ room.roomImage) }}"/>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<a href="{{ path('app_room_edit', {'id': room.id}) }}" class="button mt-3">Éditer la chambre</a>
+		<a href="{{ path('app_room_index') }}" class="link primary-link mt-3">Retour à la liste</a>
+	</div>
+{% endblock %}
