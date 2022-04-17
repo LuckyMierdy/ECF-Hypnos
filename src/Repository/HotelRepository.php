@@ -3,10 +3,12 @@
 namespace App\Repository;
 
 use App\Entity\Hotel;
+use App\Entity\Room;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 /**
  * @method Hotel|null find($id, $lockMode = null, $lockVersion = null)
@@ -19,6 +21,17 @@ class HotelRepository extends ServiceEntityRepository
   public function __construct(ManagerRegistry $registry)
   {
     parent::__construct($registry, Hotel::class);
+  }
+
+  public function getHotelPaginator(Room $room, int $offset): Paginator
+  {
+    $query = $this->createQueryBuilder('r')
+      ->andWhere('r.room = :room')
+      ->setParameter('room', $room)
+      ->orderBy('r.createdAt', 'DESC')
+      ->setFirstResult($offset)
+      ->getQuery();
+    return new Paginator($query);
   }
 
   /**
@@ -44,23 +57,6 @@ class HotelRepository extends ServiceEntityRepository
       $this->_em->flush();
     }
   }
-
-  // /**
-  //  * @return Hotel[] Returns an array of Hotel objects
-  //  */
-  /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('h')
-            ->andWhere('h.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('h.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
 
   /*
     public function findOneBySomeField($value): ?Hotel

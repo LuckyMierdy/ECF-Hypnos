@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>
 			{% block title %}Welcome!
 			{% endblock %}
@@ -50,7 +52,7 @@
 									<a href="{{ path('app_accueil') }}">Accueil</a>
 								</li>
 								<li>
-									<a href="{{ path('app_hotel_catalogue') }}">Voir les établissements</a>
+									<a href="{{ path('app_hotel_catalogue_index') }}">Voir les établissements</a>
 								</li>
 								<li>
 									<a href="#">Réservez une chambre</a>
@@ -83,7 +85,7 @@
 							<a href="{{ path('app_accueil') }}">Accueil</a>
 						</li>
 						<li>
-							<a href="{{ path('app_hotel_catalogue') }}">Voir les établissements</a>
+							<a href="{{ path('app_hotel_catalogue_index') }}">Voir les établissements</a>
 						</li>
 						<li>
 							<a href="#">Réserver une chambre</a>

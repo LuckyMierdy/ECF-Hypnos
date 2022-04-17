@@ -14,10 +14,10 @@ class RoomType extends AbstractType
   public function buildForm(FormBuilderInterface $builder, array $options): void
   {
     $builder
-      ->add('name')
-      ->add('description')
-      ->add('price')
-      ->add('manager_name')
+      ->add('name', null, array('label' => 'Nom :'))
+      ->add('description', null, array('label' => 'Description :'))
+      ->add('price', null, array('label' => 'Prix :'))
+      ->add('manager_name', null, array('label' => 'Nom du gérant :'))
       ->add('imageFile', FileType::class, [
         'label' => 'Hotel image',
         'mapped' => false,

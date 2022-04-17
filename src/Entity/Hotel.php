@@ -27,18 +27,20 @@ class Hotel
   #[ORM\Column(type: 'text')]
   private $description;
 
-  #[ORM\OneToMany(mappedBy: 'hotelId', targetEntity: Room::class, orphanRemoval: true)]
-  private $rooms;
-
   #[ORM\Column(type: 'string', length: 255)]
   private $hotelImage;
 
   #[ORM\Column(type: 'string', length: 255)]
   private $manager_name;
 
+  #[ORM\OneToMany(mappedBy: 'hotel_relation', targetEntity: Room::class)]
+  private $room_relation;
+
   public function __construct()
   {
     $this->rooms = new ArrayCollection();
+    $this->Room_relation = new ArrayCollection();
+    $this->room_relation = new ArrayCollection();
   }
 
   public function getId(): ?int
@@ -122,6 +124,36 @@ class Hotel
   public function setManagerName(?string $manager_name): self
   {
     $this->manager_name = $manager_name;
+
+    return $this;
+  }
+
+  /**
+   * @return Collection<int, Room>
+   */
+  public function getRoomRelation(): Collection
+  {
+    return $this->room_relation;
+  }
+
+  public function addRoomRelation(Room $roomRelation): self
+  {
+    if (!$this->room_relation->contains($roomRelation)) {
+      $this->room_relation[] = $roomRelation;
+      $roomRelation->setHotelRelation($this);
+    }
+
+    return $this;
+  }
+
+  public function removeRoomRelation(Room $roomRelation): self
+  {
+    if ($this->room_relation->removeElement($roomRelation)) {
+      // set the owning side to null (unless already changed)
+      if ($roomRelation->getHotelRelation() === $this) {
+        $roomRelation->setHotelRelation(null);
+      }
+    }
 
     return $this;
   }

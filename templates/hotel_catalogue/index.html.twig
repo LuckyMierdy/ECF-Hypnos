@@ -8,15 +8,15 @@
 		<h1>Nos hôtels en France</h1>
 		<p class='text-center p-5'>
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur congue sem ac neque elementum, ac tristique felis
-																																																laoreet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam viverra, magna ac dapibus dictum,
-																																																arcu neque sollicitudin dolor, et ultricies magna lectus sit amet lectus. Donec nec turpis lacinia, egestas mi vel,
-																																																sagittis dui. Maecenas interdum ante nunc. Morbi ut quam sit amet ipsum pretium eleifend at at dolor. In pulvinar,
-																																																dolor eget egestas tincidunt, nulla magna ullamcorper elit, id consectetur quam neque sed dolor. Pellentesque
-																																																habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque eget feugiat tortor.
-																																																Praesent condimentum ut risus at tincidunt. Maecenas at tincidunt turpis.  Morbi vitae quam a nulla pretium rutrum.
+												laoreet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam viverra, magna ac dapibus dictum,
+												arcu neque sollicitudin dolor, et ultricies magna lectus sit amet lectus. Donec nec turpis lacinia, egestas mi vel,
+												sagittis dui. Maecenas interdum ante nunc. Morbi ut quam sit amet ipsum pretium eleifend at at dolor. In pulvinar,
+												dolor eget egestas tincidunt, nulla magna ullamcorper elit, id consectetur quam neque sed dolor. Pellentesque
+												habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque eget feugiat tortor.
+												Praesent condimentum ut risus at tincidunt. Maecenas at tincidunt turpis.  Morbi vitae quam a nulla pretium rutrum.
 		</p>
 		{% for hotel in hotels %}
-			<div class='d-flex justify-content-center m-3'>
+			<div class='d-flex flex-column flex-lg-row justify-content-center align-items-center m-3'>
 				<div class='d-flex justify-content-center align-items-center' style='width: 50%'>
 					<img src="{{asset('uploads/' ~ hotel.hotelImage) }}"/>
 				</div>
@@ -32,7 +32,7 @@
 						</p>
 					</div>
 					<div class='ps-5 pe-5'>{{ hotel.description }}</div>
-					<a href='#' class='button m-3'>Voir cet hôtel</a>
+					<a href="{{ path('app_hotel_catalogue_show', {'id': hotel.id}) }}" class='button m-3'>Voir cet hôtel</a>
 				</div>
 			</div>
 		{% else %}
