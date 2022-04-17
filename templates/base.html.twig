@@ -58,7 +58,7 @@
 									<a href="#">Réservez une chambre</a>
 								</li>
 								<li>
-									<a href="#">Contactez nous</a>
+									<a href="{{ path('app_contact') }}">Contactez nous</a>
 								</li>
 								{% if is_granted('ROLE_MANAGER') %}
 									<li>
@@ -91,7 +91,7 @@
 							<a href="#">Réserver une chambre</a>
 						</li>
 						<li>
-							<a href="#">Contactez nous</a>
+							<a href="{{ path('app_contact') }}">Contactez nous</a>
 						</li>
 					</ul>
 				</div>

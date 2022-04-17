@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact
+{% endblock %}
+
+{% block body %}
+	<div class="d-flex flex-column align-items-center" style='width: 100%;'>
+		<p class="text-center p-5">
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur congue sem ac neque elementum, ac tristique felis
+			laoreet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam viverra, magna ac dapibus dictum,
+			arcu neque sollicitudin dolor, et ultricies magna lectus sit amet lectus. Donec nec turpis lacinia, egestas mi vel,
+			sagittis dui. Maecenas interdum ante nunc. Morbi ut quam sit amet ipsum pretium eleifend at at dolor. In pulvinar,
+			dolor eget egestas tincidunt, nulla magna ullamcorper elit, id consectetur quam neque sed dolor. Pellentesque
+			habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque eget feugiat tortor.
+			Praesent condimentum ut risus at tincidunt. Maecenas at tincidunt turpis.  Morbi vitae quam a nulla pretium rutrum.
+		</p>
+		{{form_start(contact)}}
+		<div class="d-lg-flex">
+			<div class="text-center mt-2 mb-2">
+				{{ form_row(contact.firstname) }}
+			</div>
+			<div class="text-center mt-2 mb-2">
+				{{ form_row(contact.lastname) }}
+			</div>
+		</div>
+		<div class="d-lg-flex">
+			<div class="text-center mt-2 mb-2">
+				{{ form_row(contact.email) }}
+			</div>
+			<div class="text-center mt-2 mb-2">
+				{{ form_row(contact.subject) }}
+			</div>
+		</div>
+		<div class="text-center mt-2 mb-2">
+			{{ form_row(contact.description) }}
+		</div>
+		<div class="d-flex justify-content-center pb-5">
+			<button type="submit" class="button mt-5">Envoyer</button>
+		</div>
+		{{form_end(contact)}}
+
+	</div>
+{% endblock %}

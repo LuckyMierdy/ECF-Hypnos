@@ -8,6 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class RoomType extends AbstractType
 {
@@ -15,7 +16,12 @@ class RoomType extends AbstractType
   {
     $builder
       ->add('name', null, array('label' => 'Nom :'))
-      ->add('description', null, array('label' => 'Description :'))
+      ->add('description', TextareaType::class, [
+        'label' => 'description :',
+        'label_attr' => [
+          'class' => 'align-top'
+        ]
+      ])
       ->add('price', null, array('label' => 'Prix :'))
       ->add('manager_name', null, array('label' => 'Nom du gérant :'))
       ->add('imageFile', FileType::class, [
