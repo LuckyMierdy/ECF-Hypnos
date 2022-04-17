@@ -55,7 +55,7 @@
 									<a href="{{ path('app_hotel_catalogue_index') }}">Voir les établissements</a>
 								</li>
 								<li>
-									<a href="#">Réservez une chambre</a>
+									<a href="{{ path('app_reservation') }}">Réservez une chambre</a>
 								</li>
 								<li>
 									<a href="{{ path('app_contact') }}">Contactez nous</a>
@@ -88,14 +88,14 @@
 							<a href="{{ path('app_hotel_catalogue_index') }}">Voir les établissements</a>
 						</li>
 						<li>
-							<a href="#">Réserver une chambre</a>
+							<a href="{{ path('app_reservation') }}">Réserver une chambre</a>
 						</li>
 						<li>
 							<a href="{{ path('app_contact') }}">Contactez nous</a>
 						</li>
 					</ul>
 				</div>
-				<form action="Reservation.php" class="align-self-center">
+				<form action="{{ path('app_reservation') }}" class="align-self-center">
 					<button type="submit" class="button align-self-center">Réserver une chambre</button>
 				</form>
 			</div>
