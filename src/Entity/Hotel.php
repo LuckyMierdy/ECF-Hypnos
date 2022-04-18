@@ -36,11 +36,15 @@ class Hotel
   #[ORM\OneToMany(mappedBy: 'hotel_relation', targetEntity: Room::class)]
   private $room_relation;
 
+  #[ORM\OneToMany(mappedBy: 'Hotel', targetEntity: Reservation::class)]
+  private $reservations;
+
   public function __construct()
   {
     $this->rooms = new ArrayCollection();
     $this->Room_relation = new ArrayCollection();
     $this->room_relation = new ArrayCollection();
+    $this->reservations = new ArrayCollection();
   }
 
   public function getId(): ?int
@@ -156,5 +160,35 @@ class Hotel
     }
 
     return $this;
+  }
+
+  /**
+   * @return Collection<int, Reservation>
+   */
+  public function getReservations(): Collection
+  {
+      return $this->reservations;
+  }
+
+  public function addReservation(Reservation $reservation): self
+  {
+      if (!$this->reservations->contains($reservation)) {
+          $this->reservations[] = $reservation;
+          $reservation->setHotel($this);
+      }
+
+      return $this;
+  }
+
+  public function removeReservation(Reservation $reservation): self
+  {
+      if ($this->reservations->removeElement($reservation)) {
+          // set the owning side to null (unless already changed)
+          if ($reservation->getHotel() === $this) {
+              $reservation->setHotel(null);
+          }
+      }
+
+      return $this;
   }
 }

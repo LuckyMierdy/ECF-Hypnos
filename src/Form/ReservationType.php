@@ -9,7 +9,6 @@ use App\Repository\RoomRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
@@ -29,6 +28,7 @@ class ReservationType extends AbstractType
         'query_builder' => function (HotelRepository $hotelRepository) {
           return $hotelRepository->createQueryBuilder('h')->orderBy('h.name', 'ASC');
         },
+
       ])
 
       ->add('room', EntityType::class, [

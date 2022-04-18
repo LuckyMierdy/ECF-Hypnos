@@ -15,7 +15,7 @@ class ReservationController extends AbstractController
     $form = $this->createForm(ReservationType::class);
     return $this->renderForm('reservation/index.html.twig', [
       'controller_name' => 'ReservationController',
-      'reservation' => $form
+      'reservation' => $form,
     ]);
   }
 }
