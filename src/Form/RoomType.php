@@ -31,7 +31,6 @@ class RoomType extends AbstractType
       ])
       ->add('manager_name', TextType::class, [
         'label' => 'Nom du gérant :',
-        //'disabled' => true,
       ])
       ->add('imageFile', FileType::class, [
         'label' => 'Hotel image',

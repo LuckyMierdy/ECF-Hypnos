@@ -38,15 +38,8 @@ class HotelType extends AbstractType
         ]
       ])
 
-      ->add('manager_name', ChoiceType::class, [
-        'choice_attr' => ChoiceList::attr($this, function (User $user) {
-          $fullname = $user->getFirstname . ' ' . $user->getLastname;
-          if ($user->getRoles == 'ROLE_MANAGER') {
-            return $fullname;
-          }
-          return $fullname;
-        }),
-        'label' => 'Nom du Gérant :',
+      ->add('manager_name', TextType::class, [
+        'label' => 'Nom du gérant :',
       ])
 
       ->add('imageFile', FileType::class, [
