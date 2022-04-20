@@ -1,7 +1,41 @@
 @import "~bootstrap/scss/bootstrap";
 
+@font-face {
+  font-family: cormorant;
+  src: url(font/Cormorant-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: alegreyaSans;
+  src: url(font/AlegreyaSans-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: hind;
+  src: url(font/hind-Regular.ttf) format("truetype");
+}
+
 body {
   background-color: #E7E5DF;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #E7BB41;
+  font-family: alegreyaSans;
+}
+
+p {
+  color: #393E41;
+  font-family: Hind;
+}
+
+h1 {
+  color: #E7BB41;
+  font-family: cormorant;
 }
 
 nav {
@@ -20,6 +54,7 @@ header>div>div {
 li>a {
   color: #1C1F2A;
   text-decoration: none;
+  font-family: alegreyaSans;
 }
 
 li {
@@ -131,6 +166,7 @@ textarea {
 
   li>a {
     color: #E7BB41;
+    font-family: alegreyaSans;
   }
 
 }

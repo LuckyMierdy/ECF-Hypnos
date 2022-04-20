@@ -7,7 +7,23 @@
 	<div class="d-flex flex-column align-items-center p-5" style="width:100%;">
 		<h1>Create new Room</h1>
 		{{ form_start(form) }}
-		{{ form_widget(form) }}
+
+		<div class="mt-2 mb-2">
+			{{ form_row(form.name) }}
+		</div>
+		<div class="mt-2 mb-2">
+			{{ form_row(form.description) }}
+		</div>
+		<div class="mt-2 mb-2">
+			{{ form_row(form.price) }}
+		</div>
+		<div class="mt-2 mb-2">
+			{{ form_row(form.manager_name, {'value':app.user.firstname ~ ' ' ~ app.user.lastname}) }}
+		</div>
+		<div class="mt-2 mb-2">
+			{{ form_row(form.imageFile) }}
+		</div>
+
 		<div class="d-flex justify-content-center mt-3">
 			<button class="button">Mettre à jour</button>
 		</div>

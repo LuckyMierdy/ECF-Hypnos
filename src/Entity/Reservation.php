@@ -28,6 +28,12 @@ class Reservation
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'reservations')]
     private $User;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private $hotel_id;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    private $room_id;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -89,6 +95,30 @@ class Reservation
     public function setUser(?User $User): self
     {
         $this->User = $User;
+
+        return $this;
+    }
+
+    public function getHotelId(): ?string
+    {
+        return $this->hotel_id;
+    }
+
+    public function setHotelId(string $hotel_id): self
+    {
+        $this->hotel_id = $hotel_id;
+
+        return $this;
+    }
+
+    public function getRoomId(): ?string
+    {
+        return $this->room_id;
+    }
+
+    public function setRoomId(string $room_id): self
+    {
+        $this->room_id = $room_id;
 
         return $this;
     }

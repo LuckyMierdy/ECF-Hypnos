@@ -6,6 +6,7 @@ use App\Entity\Hotel;
 use App\Repository\HotelRepository;
 use App\Entity\Room;
 use App\Repository\RoomRepository;
+use App\Entity\Reservation;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -55,7 +56,7 @@ class ReservationType extends AbstractType
   public function configureOptions(OptionsResolver $resolver): void
   {
     $resolver->setDefaults([
-      // Configure your form options here
+      'data_class' => Reservation::class,
     ]);
   }
 }

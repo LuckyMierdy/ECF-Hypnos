@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Room;
+
 use App\Form\RoomType;
 use App\Repository\RoomRepository;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use PHPUnit\Util\Filesystem;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -16,15 +18,16 @@ use Symfony\Component\Routing\Annotation\Route;
 class RoomController extends AbstractController
 {
   #[Route('/', name: 'app_room_index', methods: ['GET'])]
-  public function index(RoomRepository $roomRepository): Response
+  public function index(RoomRepository $roomRepository, UserRepository $userRepository): Response
   {
     return $this->render('room/index.html.twig', [
       'rooms' => $roomRepository->findAll(),
+      'users' => $userRepository->findAll(),
     ]);
   }
 
   #[Route('/new', name: 'app_room_new', methods: ['GET', 'POST'])]
-  public function new(Request $request, RoomRepository $roomRepository): Response
+  public function new(Request $request, RoomRepository $roomRepository, UserRepository $userRepository): Response
   {
     $room = new Room();
     $form = $this->createForm(RoomType::class, $room);
@@ -57,6 +60,7 @@ class RoomController extends AbstractController
     return $this->renderForm('room/new.html.twig', [
       'room' => $room,
       'form' => $form,
+      'users' => $userRepository->findAll(),
     ]);
   }
 
@@ -69,7 +73,7 @@ class RoomController extends AbstractController
   }
 
   #[Route('/{id}/edit', name: 'app_room_edit', methods: ['GET', 'POST'])]
-  public function edit(Request $request, Room $room, RoomRepository $roomRepository): Response
+  public function edit(Request $request, Room $room, RoomRepository $roomRepository, UserRepository $userRepository): Response
   {
     $form = $this->createForm(RoomType::class, $room);
     $form->handleRequest($request);
@@ -101,6 +105,8 @@ class RoomController extends AbstractController
     return $this->renderForm('room/edit.html.twig', [
       'room' => $room,
       'form' => $form,
+      'users' => $userRepository->findAll(),
+
     ]);
   }
 

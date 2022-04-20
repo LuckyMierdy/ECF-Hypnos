@@ -27,9 +27,16 @@
 		<div class="text-center mt-2 mb-2">
 			{{ form_row(reservation.checkout) }}
 		</div>
-		<div class="d-flex justify-content-center pb-5">
-			<button type="submit" class="button mt-5">Réserver</button>
-		</div>
+		{{ form_widget(reservation) }}
+		{% if is_granted('ROLE_USER') %}
+			<div class="d-flex justify-content-center pb-5">
+				<button type="submit" class="button mt-5">Réserver</button>
+			</div>
+		{% else %}
+			<div class="d-flex justify-content-center pb-5">
+				<a href="{{ path('login') }}" class="button mt-5">Réserver</a>
+			</div>
+		{% endif %}
 		{{form_end(reservation)}}
 
 	</div>

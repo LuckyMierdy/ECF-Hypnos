@@ -19,19 +19,21 @@
 			</thead>
 			<tbody>
 				{% for room in rooms %}
-					<tr class="container">
-						<td class="text-center col-1">{{ room.id }}</td>
-						<td class="text-center col-1">{{ room.name }}</td>
-						<td class="text-center col-6">{{ room.description }}</td>
-						<td class="text-center col-1">{{ room.price }}</td>
-						<td class="text-center col-1">{{ room.managername }}</td>
-						<td class="text-center col-2">
-							<div class="d-flex flex-column align-items-center">
-								<a href="{{ path('app_room_show', {'id': room.id}) }}">Montrer la chambre</a>
-								<a href="{{ path('app_room_edit', {'id': room.id}) }}">Éditer la chambre</a>
-							</div>
-						</td>
-					</tr>
+					{% if app.user.firstname ~ ' ' ~ app.user.lastname == room.managername %}
+						<tr class="container">
+							<td class="text-center col-1">{{ room.id }}</td>
+							<td class="text-center col-1">{{ room.name }}</td>
+							<td class="text-center col-6">{{ room.description }}</td>
+							<td class="text-center col-1">{{ room.price }}</td>
+							<td class="text-center col-1">{{ room.managername }}</td>
+							<td class="text-center col-2">
+								<div class="d-flex flex-column align-items-center">
+									<a href="{{ path('app_room_show', {'id': room.id}) }}">Montrer la chambre</a>
+									<a href="{{ path('app_room_edit', {'id': room.id}) }}">Éditer la chambre</a>
+								</div>
+							</td>
+						</tr>
+					{% endif %}
 				{% else %}
 					<tr>
 						<td colspan="5">Aucune chambre trouvé</td>
