@@ -20,6 +20,7 @@ final class Version20220418164643 extends AbstractMigration
   public function up(Schema $schema): void
   {
     // this up() migration is auto-generated, please modify it to your needs
+    $this->addSql('ALTER TABLE reservation ADD room_id INT DEFAULT NULL, ADD hotel_id INT DEFAULT NULL, ADD user_id INT DEFAULT NULL');
     $this->addSql('ALTER TABLE reservation ADD CONSTRAINT FK_42C8495554177093 FOREIGN KEY (room_id) REFERENCES room (id)');
     $this->addSql('ALTER TABLE reservation ADD CONSTRAINT FK_42C849553243BB18 FOREIGN KEY (hotel_id) REFERENCES hotel (id)');
     $this->addSql('ALTER TABLE reservation ADD CONSTRAINT FK_42C84955A76ED395 FOREIGN KEY (user_id) REFERENCES user (id)');

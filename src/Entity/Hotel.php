@@ -167,28 +167,28 @@ class Hotel
    */
   public function getReservations(): Collection
   {
-      return $this->reservations;
+    return $this->reservations;
   }
 
   public function addReservation(Reservation $reservation): self
   {
-      if (!$this->reservations->contains($reservation)) {
-          $this->reservations[] = $reservation;
-          $reservation->setHotel($this);
-      }
+    if (!$this->reservations->contains($reservation)) {
+      $this->reservations[] = $reservation;
+      $reservation->setHotel($this);
+    }
 
-      return $this;
+    return $this;
   }
 
   public function removeReservation(Reservation $reservation): self
   {
-      if ($this->reservations->removeElement($reservation)) {
-          // set the owning side to null (unless already changed)
-          if ($reservation->getHotel() === $this) {
-              $reservation->setHotel(null);
-          }
+    if ($this->reservations->removeElement($reservation)) {
+      // set the owning side to null (unless already changed)
+      if ($reservation->getHotel() === $this) {
+        $reservation->setHotel(null);
       }
+    }
 
-      return $this;
+    return $this;
   }
 }
