@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('manager/room')]
 class RoomController extends AbstractController
 {
-  #[Route('/', name: 'app_room_index', methods: ['GET'])]
+  #[Route('/', name: 'app_room_index', methods: ['GET', 'POST'])]
   public function index(RoomRepository $roomRepository, UserRepository $userRepository): Response
   {
     return $this->render('room/index.html.twig', [
