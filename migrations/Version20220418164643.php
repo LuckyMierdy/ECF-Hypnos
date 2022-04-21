@@ -38,6 +38,6 @@ final class Version20220418164643 extends AbstractMigration
     $this->addSql('DROP INDEX IDX_42C8495554177093 ON reservation');
     $this->addSql('DROP INDEX IDX_42C849553243BB18 ON reservation');
     $this->addSql('DROP INDEX IDX_42C84955A76ED395 ON reservation');
-    $this->addSql('ALTER TABLE reservation DROP room_id, DROP hotel_id, DROP user_id');
+    $this->addSql('ALTER TABLE reservation DROP room_id, DROP user_id');
   }
 }
