@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ReservationController extends AbstractController
 {
-  #[Route('/reservation', name: 'app_reservation')]
+  #[Route('/reservation', name: 'app_reservation', methods: ['GET', 'POST'])]
   public function index(Request $request, ReservationRepository $reservationRepository): Response
   {
     $reservation = new Reservation();
